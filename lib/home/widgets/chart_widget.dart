@@ -6,8 +6,8 @@ class ChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
-      width: 80,
+      height: 88,
+      width: 88,
       child: Stack(
         children: [
           Center(
