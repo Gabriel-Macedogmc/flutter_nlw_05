@@ -18,10 +18,20 @@ class QuizWidget extends StatelessWidget {
           ),
           SizedBox(height: 24),
           AwnserWidget(
+            title: 'Kit de desenvolvimento de interface de usuário',
+            isSelected: false,
+          ),
+          AwnserWidget(
             title:
                 'Possibilita a criação de aplicativos compilados nativamente',
-            isRight: false,
+            isRight: true,
             isSelected: true,
+          ),
+          AwnserWidget(
+            title: 'Acho que é uma marca de café do Himalaia',
+          ),
+          AwnserWidget(
+            title: 'Possibilita a criação de desktops que são muito incríveis',
           ),
         ],
       ),

@@ -60,7 +60,7 @@ class AwnserWidget extends StatelessWidget {
               height: 24,
               width: 24,
               decoration: BoxDecoration(
-                color: isSelected ? _selectedColorRight : AppColors.darkGreen,
+                color: isSelected ? _selectedColorRight : AppColors.white,
                 borderRadius: BorderRadius.circular(500),
                 border: Border.fromBorderSide(
                   BorderSide(
@@ -69,7 +69,7 @@ class AwnserWidget extends StatelessWidget {
                 ),
               ),
               child: Icon(
-                isSelected ? _selectedIconRight : Icons.check,
+                isSelected ? _selectedIconRight : Icons.circle,
                 size: 16,
                 color: Colors.white,
               ),
