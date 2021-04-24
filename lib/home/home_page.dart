@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nlw_flutter/challenge/challenge_page.dart';
 import 'package:nlw_flutter/challenge/widgets/quiz_widget.dart';
 import 'package:nlw_flutter/core/core.dart';
 import 'package:nlw_flutter/home/home_controller.dart';
@@ -52,7 +53,17 @@ class _HomePageState extends State<HomePage> {
                 children: controller.quizzes!
                     .map((quizz) => QuizCardWidget(
                           title: quizz.title,
-                          image: quizz.image,
+                          image: AppImages.blocks,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChallengePage(
+                                  questions: quizz.questions,
+                                ),
+                              ),
+                            );
+                          },
                           percent:
                               quizz.questionsAwnsered / quizz.questions.length,
                           completed:

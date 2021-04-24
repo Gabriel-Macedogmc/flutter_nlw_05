@@ -45,7 +45,7 @@ class QuizModel {
   Map<String, dynamic> toMap() {
     return {
       'title': title,
-      'questions': questions?.map((x) => x.toMap()).toList(),
+      'questions': questions.map((x) => x.toMap()).toList(),
       'questionsAwnsered': questionsAwnsered,
       'image': image,
       'level': level.parse,

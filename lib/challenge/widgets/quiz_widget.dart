@@ -1,38 +1,50 @@
 import 'package:flutter/material.dart';
+
 import 'package:nlw_flutter/challenge/widgets/awnser_widget.dart';
 import 'package:nlw_flutter/core/app_text_styles.dart';
+import 'package:nlw_flutter/shared/models/question_model.dart';
 
-class QuizWidget extends StatelessWidget {
-  final String title;
+class QuizWidget extends StatefulWidget {
+  final QuestionModel question;
+  final VoidCallback onChanged;
+  const QuizWidget({
+    Key? key,
+    required this.question,
+    required this.onChanged,
+  }) : super(key: key);
 
-  const QuizWidget({Key? key, required this.title}) : super(key: key);
+  @override
+  _QuizWidgetState createState() => _QuizWidgetState();
+}
+
+class _QuizWidgetState extends State<QuizWidget> {
+  int indexSelected = -1;
+
+  awnsers(int index) => widget.question.awnsers[index];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
+          SizedBox(height: 64),
           Text(
-            title,
+            widget.question.title,
             style: AppTextStyles.heading,
           ),
           SizedBox(height: 24),
-          AwnserWidget(
-            title: 'Kit de desenvolvimento de interface de usuário',
-            isSelected: false,
-          ),
-          AwnserWidget(
-            title:
-                'Possibilita a criação de aplicativos compilados nativamente',
-            isRight: true,
-            isSelected: true,
-          ),
-          AwnserWidget(
-            title: 'Acho que é uma marca de café do Himalaia',
-          ),
-          AwnserWidget(
-            title: 'Possibilita a criação de desktops que são muito incríveis',
-          ),
+          for (var i = 0; i < widget.question.awnsers.length; i++)
+            AwnserWidget(
+              disabled: indexSelected != -1,
+              isSelected: indexSelected == i,
+              onTap: () {
+                indexSelected = i;
+                setState(() {});
+                Future.delayed(Duration(seconds: 1))
+                    .then((value) => widget.onChanged());
+              },
+              awnser: awnsers(i),
+            ),
         ],
       ),
     );

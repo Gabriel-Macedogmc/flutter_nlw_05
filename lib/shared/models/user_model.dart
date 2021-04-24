@@ -22,7 +22,7 @@ class UserModel {
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       name: map['name'],
-      photoUrl: map['phtoUrl'],
+      photoUrl: map['photoUrl'],
       score: map['score'],
     );
   }
